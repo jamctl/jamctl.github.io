@@ -1,0 +1,10 @@
+instances:
+  save_path: config
+features:
+  enable_register: true
+security:
+  argon2:
+    memcost: 65536
+    timecost: 2
+    parallelism: 1
+    length: 32

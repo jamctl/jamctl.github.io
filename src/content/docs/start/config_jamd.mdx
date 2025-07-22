@@ -1,0 +1,33 @@
+---
+title: Jamd配置
+---
+
+import {Code} from 'astro-expressive-code/components'
+import config from "./jamd.yaml?raw"
+
+这是Jamd本体的默认配置文件:
+
+<Code code={config} lang="yaml" title="jamd.yaml"/>
+
+## 实例
+
+| 类型     | 名称          | 描述          |
+|--------|-------------|-------------|
+| String | config_path | 存储实例配置文件的目录 |
+
+## 可选功能
+
+| 类型   | 名称              | 描述     |
+|------|-----------------|--------|
+| bool | enable_register | 启用注册功能 |
+
+## 安全
+
+### Argon2(id)配置
+
+| 类型       | 名称          | 描述                                        |
+|----------|-------------|-------------------------------------------|
+| uint32_t | memcost     | 以KiB计的内存量。越高对GPU/ASIC破解安全性越强，但所花费的内存也会越高。 |
+| uint32_t | timecost    | 进行哈希的迭代次数。越高安全性越强，但加解密所花费的时间也会越长。         |
+| uint32_t | parallelism | 并行线程数，过高可能因内存共享冲突降低安全性，通常保持默认值即可。         |
+| size_t   | length      | 输出哈希值的字节长度，大于等于16才具备基本安全性，超过64字节几乎无安全增益。  |

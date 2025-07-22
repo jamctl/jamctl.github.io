@@ -1,0 +1,17 @@
+---
+title: PGP公钥信息
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import {Code} from 'astro-expressive-code/components';
+import mja1 from "./mja1.pub?raw";
+import mja2 from "./mja2.pub?raw";
+
+<Tabs>
+    <TabItem label="MojaveHao(0)">
+        <Code code={mja1}></Code>
+    </TabItem>
+    <TabItem label="MojaveHao(1)">
+        <Code code={mja2}></Code>
+    </TabItem>
+</Tabs>

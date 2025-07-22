@@ -1,0 +1,15 @@
+listeners:
+  -
+    address: "127.0.0.1"
+    port: 9000
+    https: false
+db_clients:
+  -
+    name: jamd
+    rdbms: postgresql
+    host: "127.0.0.1"
+    port: 5432
+    dbname: jamd
+    user: mojave
+    password: 12345678
+br_static: false
