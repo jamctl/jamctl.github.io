@@ -13,7 +13,7 @@ export default defineConfig({
     integrations: [
         starlight({
             title: 'Jamctl Docs',
-            social: [{icon: 'github', label: 'GitHub', href: 'https://github.com/MSLXTeam/jamctl'}],
+            social: [{icon: 'github', label: 'GitHub', href: 'https://github.com/jamctl/jamctl'}],
             sidebar: [
                 {
                     label: '使用',
