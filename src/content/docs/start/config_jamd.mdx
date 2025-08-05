@@ -4,6 +4,7 @@ title: Jamd配置
 
 import {Code} from 'astro-expressive-code/components'
 import config from "./jamd.yaml?raw"
+import {Aside} from "@astrojs/starlight/components";
 
 这是Jamd本体的默认配置文件,当jamd.yaml不存在时,也会应用下面的配置:
 
@@ -17,9 +18,16 @@ import config from "./jamd.yaml?raw"
 
 ## 可选功能
 
-| 类型   | 名称              | 描述     |
-|------|-----------------|--------|
-| bool | enable_register | 启用注册功能 |
+| 类型   | 名称                            | 描述           |
+|------|-------------------------------|--------------|
+| bool | enable_register               | 启用注册功能       |
+| bool | enable_grpc_server_reflection | 启用gRPC服务器端反射 |
+<Aside type="caution" title="仅在开发时启用gRPC服务器端反射">
+    反射是一个协议，gRPC服务器可以使用它来声明通过标准化RPC服务公开的Protobuf定义的 API，
+    包括请求和响应消息引用的所有类型。客户端随后可以使用这些信息以人类可读的方式编码请求和解码响应。
+
+    或者换句话说，这会暴露你所有的API，因此在生产环境中会带来安全问题。仅在开发时启用此选项。
+</Aside>
 
 ## 安全
 
@@ -31,3 +39,9 @@ import config from "./jamd.yaml?raw"
 | uint32_t | timecost    | 进行哈希的迭代次数。越高安全性越强，但加解密所花费的时间也会越长。         |
 | uint32_t | parallelism | 并行线程数，过高可能因内存共享冲突降低安全性，通常保持默认值即可。         |
 | size_t   | length      | 输出哈希值的字节长度，大于等于16才具备基本安全性，超过64字节几乎无安全增益。  |
+
+## 日志
+
+| 类型     | 名称    | 描述                                              |
+|--------|-------|-------------------------------------------------|
+| String | level | 显示日志的最低等级，可选值有`debug`、`info`、`warning`和`error`。 |
