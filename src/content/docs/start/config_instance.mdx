@@ -8,3 +8,22 @@ import config from "./instance.yaml?raw"
 这是一个示例的服务器配置文件,用于Paper/Leaves服务器:
 
 <Code code={config} lang="yaml" title="instance.yaml"/>
+
+## 元数据
+
+| 类型       | 名称       | 描述                              |
+|----------|----------|---------------------------------|
+| int      | id       | 唯一ID                            |
+| String   | name     | 显示名称                            |
+| String   | executor | 执行器，如`java`                     |
+| String[] | params   | 运行参数                            |
+| String   | workdir  | 工作目录，如服务器运行目录                   |
+| String   | target   | JAR文件等，拼接在params后，如`server.jar` |
+
+
+## Java服务器特定配置
+
+| 类型             | 名称  | 描述         |
+|----------------|-----|------------|
+| unsigned short | xms | JVM 堆的初始大小 |
+| unsigned short | xmx | JVM 堆的最大大小 |
